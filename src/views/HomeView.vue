@@ -1,46 +1,27 @@
 <template>
   <div class="home">
     <h1>Home</h1>
-    <input type="text" v-model="search">
-    <p>search term - {{ search }}</p>
-    <button @click="handleClick">stop watching</button>
-    <div v-for="name in matchingNames" :key="name">{{ name }}</div>
+    <PostList v-if="showPosts" :posts="posts" />
+    <button @click="showPosts = !showPosts">toggle posts</button>
+    <button @click="posts.pop()">delete a post</button>
   </div>
 </template>
 
 <script>
-import { computed, ref, watch, watchEffect } from 'vue'
+import PostList from '../components/PostList.vue'
+import { ref } from 'vue'
 
 export default {
   name: 'HomeView',
+  components: { PostList },
   setup() {
-    const search = ref('')
-    const names = ref(['mario', 'yoshi', 'luigi', 'toad', 'bowser', 'koopa', 'peach'])
+    const posts = ref([
+      { title: 'welcome to the blog', body: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora odit dolore voluptatum voluptas commodi id unde consequuntur molestias? Praesentium iste accusantium modi a dolorem, minima dolore beatae adipisci architecto rem suscipit voluptatum deleniti eum in officiis earum pariatur maiores tempora consequatur reprehenderit neque! Et doloremque, rerum nostrum ipsum placeat illo architecto vel quidem similique consequatur qui assumenda ex distinctio libero quasi. Necessitatibus excepturi, eaque cum corrupti eos est alias delectus distinctio officiis ex tenetur voluptates impedit neque quasi dignissimos aspernatur illo provident? Ut delectus assumenda rerum possimus quam sunt optio, nisi dolore, ad nesciunt unde fugiat. Reiciendis illum molestiae ea?', id: 1 },
+      { title: 'top 5 CSS tips', body: 'lorem ipsum', id: 2 },
+    ])
+    const showPosts = ref(true)
 
-    // the callback fires every time the search changes
-    // does't run initially
-    const stopWatch = watch(search, () => {
-      console.log('watch function ran')
-    })
-
-    // 1) run initially when the component first loads (when setup() func first runs)
-    const stopEffect = watchEffect(() => {
-      // 2) runs only when any value that we use inside it changes
-      // in this case -- search.value
-      console.log('watchEffect function ran', search.value)
-    })
-
-    // 3) to stop them watching we need to invoke those functions
-    const handleClick = () => {
-      stopWatch()
-      stopEffect()
-    }
-
-    const matchingNames = computed(() => {
-      return names.value.filter((name) => name.includes(search.value))
-    })
-
-    return { names, search, matchingNames, handleClick }
+    return { posts, showPosts }
   }
 }
 </script>
