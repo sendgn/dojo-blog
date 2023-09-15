@@ -4,13 +4,18 @@
     <h3>{{ post.title }}</h3>
     <p class="pre">{{ post.body }}</p>
   </div>
+  <div v-else>
+    <PendingSpinner />
+  </div>
 </template>
 
 <script>
 import getPost from '../composables/getPost'
+import PendingSpinner from '../components/PendingSpinner.vue'
 
 export default {
   props: ['id'],
+  components: { PendingSpinner },
   setup(props) {
     const { post, error, load } = getPost(props.id)
 
