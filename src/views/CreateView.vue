@@ -49,6 +49,7 @@ export default {
     text-align: left;
   }
   input, textarea {
+    font-family: sans-serif;
     display: block;
     margin: 10px 0;
     width: 100%;
