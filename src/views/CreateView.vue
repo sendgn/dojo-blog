@@ -20,55 +20,55 @@
 </template>
 
 <script>
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
+  import { ref } from 'vue'
+  import { useRouter } from 'vue-router'
 
-export default {
-  setup() {
-    const title = ref('')
-    const body = ref('')
-    const tag = ref('')
-    const tags = ref([])
-    const error = ref(null)
+  export default {
+    setup() {
+      const title = ref('')
+      const body = ref('')
+      const tag = ref('')
+      const tags = ref([])
+      const error = ref(null)
 
-    const router = useRouter()
+      const router = useRouter()
 
-    const handleKeydown = () => {
-      if (!tags.value.includes(tag.value)) {
-        // remove all whitespace inside a tag being inputted
-        tag.value = tag.value.replace(/\s/, '')
-        tags.value.push(tag.value)
-      }
-      tag.value = ''
-    }
-
-    const handleSubmit = async () => {
-      // json-server will generate id automatically for us
-      const post = {
-        title: title.value,
-        body: body.value,
-        tags: tags.value
-      }
-      
-      try {
-        const response = await fetch('http://localhost:3000/posts', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(post)
-        })
-        if (!response.ok) {
-          throw Error('Posting error')
+      const handleKeydown = () => {
+        if (!tags.value.includes(tag.value)) {
+          // remove all whitespace inside a tag being inputted
+          tag.value = tag.value.replace(/\s/, '')
+          tags.value.push(tag.value)
         }
-        router.push({ name: 'home' })
-      } catch (err) {
-        error.value = err.message
-        console.log(error.value)
+        tag.value = ''
       }
-    }
 
-    return { title, body, tag, tags, handleKeydown, handleSubmit }
+      const handleSubmit = async () => {
+        // json-server will generate id automatically for us
+        const post = {
+          title: title.value,
+          body: body.value,
+          tags: tags.value
+        }
+        
+        try {
+          const response = await fetch('http://localhost:3000/posts', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(post)
+          })
+          if (!response.ok) {
+            throw Error('Posting error')
+          }
+          router.push({ name: 'home' })
+        } catch (err) {
+          error.value = err.message
+          console.log(error.value)
+        }
+      }
+
+      return { title, body, tag, tags, handleKeydown, handleSubmit }
+    }
   }
-}
 </script>
 <style>
   form {

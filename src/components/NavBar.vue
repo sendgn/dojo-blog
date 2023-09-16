@@ -8,12 +8,6 @@
   </header>
 </template>
 
-<script>
-export default {
-  
-}
-</script>
-
 <style>
   header {
     display: flex;

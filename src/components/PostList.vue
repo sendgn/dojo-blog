@@ -7,12 +7,10 @@
 </template>
 
 <script>
-import SinglePost from '../components/SinglePost.vue'
+  import SinglePost from '../components/SinglePost.vue'
 
-export default {
-  props: ['posts'],
-  components: { SinglePost }
-}
+  export default {
+    props: ['posts'],
+    components: { SinglePost }
+  }
 </script>
-
-<style></style>

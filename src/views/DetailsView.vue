@@ -10,22 +10,22 @@
 </template>
 
 <script>
-import getPost from '../composables/getPost'
-import PendingSpinner from '../components/PendingSpinner.vue'
-import { useRoute } from 'vue-router'
+  import getPost from '../composables/getPost'
+  import PendingSpinner from '../components/PendingSpinner.vue'
+  import { useRoute } from 'vue-router'
 
-export default {
-  props: ['id'],
-  components: { PendingSpinner },
-  setup(props) {
-    const route = useRoute()
-    const { post, error, load } = getPost(route.params.id)
-    
-    load()
+  export default {
+    props: ['id'],
+    components: { PendingSpinner },
+    setup(props) {
+      const route = useRoute()
+      const { post, error, load } = getPost(route.params.id)
+      
+      load()
 
-    return { post, error }
+      return { post, error }
+    }
   }
-}
 </script>
 
 <style>

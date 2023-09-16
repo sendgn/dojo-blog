@@ -12,29 +12,29 @@
 </template>
 
 <script>
-import PendingSpinner from '../components/PendingSpinner.vue'
-import PostList from '../components/PostList.vue'
-import TagCloud from '../components/TagCloud.vue'
-import getPosts from '../composables/getPosts'
-import { useRoute } from 'vue-router'
-import { computed } from 'vue'
+  import PendingSpinner from '../components/PendingSpinner.vue'
+  import PostList from '../components/PostList.vue'
+  import TagCloud from '../components/TagCloud.vue'
+  import getPosts from '../composables/getPosts'
+  import { useRoute } from 'vue-router'
+  import { computed } from 'vue'
 
-export default { 
-  name: 'TagView',
-  components: { PostList, PendingSpinner, TagCloud },
-  setup() {
-    const route = useRoute()
-    const { posts, error, load } = getPosts()
+  export default { 
+    name: 'TagView',
+    components: { PostList, PendingSpinner, TagCloud },
+    setup() {
+      const route = useRoute()
+      const { posts, error, load } = getPosts()
 
-    load()
-    
-    const postsWithTag = computed(() => {
-      return posts.value.filter(p => p.tags.includes(route.params.tag))
-    })
+      load()
+      
+      const postsWithTag = computed(() => {
+        return posts.value.filter(p => p.tags.includes(route.params.tag))
+      })
 
-    return { error, posts, postsWithTag  }
+      return { error, posts, postsWithTag  }
+    }
   }
-}
 </script>
 
 <style>
