@@ -21,6 +21,7 @@ export default {
   components: { PostList, PendingSpinner },
   setup() {
     const { posts, error, load } = getPosts()
+    
     load()
 
     return { posts, error }
