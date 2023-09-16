@@ -1,8 +1,9 @@
 <template>
   <div class="tag">
     <div v-if="error" class="error">{{ error }}</div>
-    <div v-if="posts.length">
+    <div v-if="posts.length" class="layout">
       <PostList :posts="postsWithTag" />
+      <TagCloud :posts="posts" />
     </div>
     <div v-else-if="!error">
       <PendingSpinner />
@@ -13,13 +14,14 @@
 <script>
 import PendingSpinner from '../components/PendingSpinner.vue'
 import PostList from '../components/PostList.vue'
+import TagCloud from '../components/TagCloud.vue'
 import getPosts from '../composables/getPosts'
 import { useRoute } from 'vue-router'
 import { computed } from 'vue'
 
 export default { 
   name: 'TagView',
-  components: { PostList, PendingSpinner },
+  components: { PostList, PendingSpinner, TagCloud },
   setup() {
     const route = useRoute()
     const { posts, error, load } = getPosts()

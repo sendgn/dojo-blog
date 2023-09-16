@@ -39,6 +39,23 @@
         "figma"
       ],
       "id": 4
+    },
+    {
+      "title": "Photoshop Tips and Tricks",
+      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique nostrum dolore sint quidem distinctio ducimus neque quae. Fugit ex reprehenderit quod inventore saepe aliquam facilis, deserunt consequuntur similique quas, ullam fuga. Molestiae omnis, numquam quibusdam delectus commodi iusto in necessitatibus ipsam sequi nihil recusandae ipsum repellat voluptatum eveniet, eius illum similique voluptatibus nisi quo vero blanditiis dolore placeat dolorem. Facilis!",
+      "tags": [
+        "go"
+      ],
+      "id": 5
+    },
+    {
+      "title": "Where to begin with Docker?",
+      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, cumque! Eos exercitationem consectetur, iste, voluptate eius, asperiores blanditiis doloribus nam perferendis autem impedit harum. Neque consequatur voluptate perspiciatis quas vitae enim, eos quod laboriosam blanditiis.",
+      "tags": [
+        "docker",
+        "devops"
+      ],
+      "id": 6
     }
   ]
 }
