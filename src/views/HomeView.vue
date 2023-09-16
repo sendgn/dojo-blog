@@ -21,10 +21,18 @@ export default {
   components: { PostList, PendingSpinner },
   setup() {
     const { posts, error, load } = getPosts()
-    
+
     load()
 
     return { posts, error }
   }
 }
 </script>
+
+<style>
+  .home {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+  }
+</style>
