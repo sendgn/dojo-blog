@@ -21,6 +21,7 @@
 
 <script>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 export default {
   setup() {
@@ -29,6 +30,8 @@ export default {
     const tag = ref('')
     const tags = ref([])
     const error = ref(null)
+
+    const router = useRouter()
 
     const handleKeydown = () => {
       if (!tags.value.includes(tag.value)) {
@@ -56,6 +59,7 @@ export default {
         if (!response.ok) {
           throw Error('Posting error')
         }
+        router.push({ name: 'home' })
       } catch (err) {
         error.value = err.message
         console.log(error.value)
