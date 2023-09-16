@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import DetailsView from '../views/DetailsView.vue'
+import CreateView from '../views/CreateView.vue'
 
 const routes = [
   {
@@ -15,6 +16,11 @@ const routes = [
     // If we link to this page, we can access the route parameter
     // as a prop inside DetailsView component
     props: true
+  },
+  {
+    path: '/create',
+    name: 'create',
+    component: CreateView
   }
 ]
 
