@@ -21,26 +21,24 @@
       ]
     },
     {
-      "title": "132132132",
-      "body": "jgfkjhgjkghjkg",
+      "title": "Vuex Tools",
+      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit ratione ducimus fuga at ex aspernatur! Nulla iure, culpa optio magnam tempora voluptatibus quo repellendus quia expedita alias dolorem temporibus similique, rerum assumenda qui minima reiciendis excepturi in, veniam veritatis nesciunt. Ratione neque sed quia eius maxime perspiciatis ipsam doloribus modi!",
       "tags": [
-        "reedux"
+        "vue.js",
+        "vuex",
+        "coding",
+        "webdev"
       ],
       "id": 3
     },
     {
-      "title": "123",
-      "body": "123",
-      "tags": [],
-      "id": 4
-    },
-    {
-      "title": "123123",
-      "body": "123123",
+      "title": "Figma Setup",
+      "body": "Nulla iure, culpa optio magnam tempora voluptatibus quo repellendus quia expedita alias dolorem temporibus similique, rerum assumenda qui minima reiciendis excepturi in, veniam veritatis nesciunt.",
       "tags": [
-        "123123"
+        "design",
+        "figma"
       ],
-      "id": 5
+      "id": 4
     }
   ]
 }

@@ -5,7 +5,9 @@
     </router-link>
     <p>{{ snippet }}</p>
     <span v-for="tag in post.tags" :key="tag">
-      #{{ tag }}
+      <router-link :to="{ name: 'tag', params: { tag: tag } }">
+        <span class="pill">#{{ tag }}</span>
+      </router-link>
     </span>
   </div>
 </template>

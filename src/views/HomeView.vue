@@ -1,11 +1,11 @@
 <template>
   <div class="home">
     <h1>Home</h1>
-    <div v-if="error">{{ error }}</div>
+    <div v-if="error" class="error">{{ error }}</div>
     <div v-if="posts.length">
       <PostList :posts="posts" />
     </div>
-    <div v-else>
+    <div v-else-if="!error">
       <PendingSpinner />
     </div>
   </div>
@@ -30,9 +30,9 @@ export default {
 </script>
 
 <style>
-  .home {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 10px;
-  }
+.home {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+}
 </style>

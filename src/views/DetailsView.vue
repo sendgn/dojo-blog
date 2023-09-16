@@ -19,8 +19,8 @@ export default {
   components: { PendingSpinner },
   setup(props) {
     const route = useRoute()
-
     const { post, error, load } = getPost(route.params.id)
+    
     load()
 
     return { post, error }
